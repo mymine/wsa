@@ -29,7 +29,6 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/PeterNjeim/MagiskOnWSA Projects
         cp -rf Projects/* ${{ github.workspace }}
-        cp -rf Projects/.github/workflows/* ${{ github.workspace }}/.github/workflows
         rm -rf Projects
     - name: Update files
       uses: EndBug/add-and-commit@v9
