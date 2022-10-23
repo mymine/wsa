@@ -23,7 +23,7 @@ on:
             magisk_ver:
                 description: "Magisk Version"
                 required: true
-                default: "Stable"
+                default: "Canary"
                 type: choice
                 options:
                     - None
@@ -39,7 +39,7 @@ on:
             gapps_var:
                 description: "GApps Variant"
                 required: true
-                default: "MindTheGapps"
+                default: "None"
                 type: choice
                 options:
                     - None
