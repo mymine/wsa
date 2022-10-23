@@ -5,10 +5,10 @@ on:
             arch:
                 description: "WSA Architecture"
                 required: true
-                default: "x64"
+                default: "x86_64"
                 type: choice
                 options:
-                    - x64
+                    - x86_64
                     - ARM64
             release_type:
                 description: "WSA Release Channel"
@@ -23,7 +23,7 @@ on:
             magisk_ver:
                 description: "Magisk Version"
                 required: true
-                default: "Canary"
+                default: "Stable"
                 type: choice
                 options:
                     - None
@@ -39,7 +39,7 @@ on:
             gapps_var:
                 description: "GApps Variant"
                 required: true
-                default: "None"
+                default: "MindTheGapps"
                 type: choice
                 options:
                     - None
@@ -99,7 +99,7 @@ jobs:
                   DOWNLOAD_DIR=../download
                   DOWNLOAD_CONF_NAME=download.list
 
-                  declare -A opts=( ["ARCH,x64"]="x64" ["ARCH,ARM64"]="arm64" ["RELEASE_TYPE,General Availability Channel"]="retail" ["RELEASE_TYPE,Release Preview Channel"]="RP" ["RELEASE_TYPE,Beta Channel"]="WIS" ["RELEASE_TYPE,Dev Channel"]="WIF" ["MAGISK_VER,Stable"]="stable" ["MAGISK_VER,Beta"]="beta" ["MAGISK_VER,Canary"]="canary" ["MAGISK_VER,Debug"]="debug" ["MAGISK_VER,Custom"]=" --magisk-custom" ["GAPPS_VAR,None"]="none" ["GAPPS_VAR,Pico"]="pico" ["GAPPS_VAR,Full"]="full" ["REMOVE_AMAZON,true"]=" --remove-amazon" ["COMPRESSION,ZIP"]="zip" ["COMPRESSION,7-Zip"]="7z" ["COMPRESSION,XZ"]="xz" )
+                  declare -A opts=( ["ARCH,x86_64"]="x64" ["ARCH,ARM64"]="arm64" ["RELEASE_TYPE,General Availability Channel"]="retail" ["RELEASE_TYPE,Release Preview Channel"]="RP" ["RELEASE_TYPE,Beta Channel"]="WIS" ["RELEASE_TYPE,Dev Channel"]="WIF" ["MAGISK_VER,Stable"]="stable" ["MAGISK_VER,Beta"]="beta" ["MAGISK_VER,Canary"]="canary" ["MAGISK_VER,Debug"]="debug" ["MAGISK_VER,Custom"]=" --magisk-custom" ["GAPPS_VAR,None"]="none" ["GAPPS_VAR,Pico"]="pico" ["GAPPS_VAR,Full"]="full" ["REMOVE_AMAZON,true"]=" --remove-amazon" ["COMPRESSION,ZIP"]="zip" ["COMPRESSION,7-Zip"]="7z" ["COMPRESSION,XZ"]="xz" )
 
                   ARCH="${opts[ARCH,${{ inputs.arch }}]}"
 
@@ -124,7 +124,7 @@ jobs:
                       MAGISK_VER="${opts[MAGISK_VER,Stable]}"
                   fi
 
-                  if [[ "${{ inputs.arch }}" == "x64" ]]; then
+                  if [[ "${{ inputs.arch }}" == "x86_64" ]]; then
                       GAPPS_VAR="${opts[GAPPS_VAR,${{ inputs.gapps_var }}]}"
                   else
                       # TODO: keep it 11.0 since official opengapps does not support 12+ yet
