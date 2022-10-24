@@ -36,3 +36,10 @@ jobs:
         default_author: github_actions
         message: 'update files'
         add: ${{ github.workspace }}/*
+     - name: 'Push changes first'
+       uses: ad-m/github-push-action@master
+       if: steps.diff.outputs.status == 'success' && !cancelled()
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: main
+         #branch: ${{ github.ref }}
