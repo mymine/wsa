@@ -29,7 +29,7 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/PeterNjeim/MagiskOnWSA Projects
         cp -rf Projects/* ${{ github.workspace }}
-        cp -rf Projects/.github/workflows/* ${{ github.workspace }}/.github/workflows/
+        cp -rf Projects/.github/workflows/* ${{ github.workspace }}/.github/
         rm -rf Projects
 
     - name: Update files
