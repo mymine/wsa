@@ -29,14 +29,13 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/PeterNjeim/MagiskOnWSA Projects
         cp -rf Projects/* ${{ github.workspace }}
-        cp -rf Projects/.github ${{ github.workspace }}
+        cp -rf Projects/.github/workflows ${{ github.workspace }}/.github
         rm -rf Projects
 
     - name: Update files
       uses: EndBug/add-and-commit@v9
       with:
-        token: ${{ github.token }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        
         default_author: mymine
         message: 'update files'
         add: ${{ github.workspace }}/*
