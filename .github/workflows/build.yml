@@ -241,7 +241,7 @@ jobs:
                   elif [[ "${{ inputs.magisk_ver }}" == "Custom" ]]; then
                       magiskVer="_Magisk-Custom"
                   else
-                      magiskVer="_Magisk-$(curl -s https://raw.githubusercontent.com/topjohnwu/magisk-files/master/${magisk_vers[${{ inputs.magisk_ver }}]}.json | jq -r ".magisk.version")"
+                      magiskVer="_Magisk-$(curl -s https://raw.githubusercontent.com/HuskyDG/magisk-files/main/${magisk_vers[${{ inputs.magisk_ver }}]}.json | jq -r ".magisk.version")"
                   fi
                   export magiskVer
 
