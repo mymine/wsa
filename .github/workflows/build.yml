@@ -35,6 +35,7 @@ on:
             magisk_url:
                 description: "Custom Magisk APK/ZIP URL"
                 required: false
+                default: "https://raw.githubusercontent.com/HuskyDG/magisk-files/main/app-release.apk"
                 type: string
             gapps_var:
                 description: "GApps Variant"
@@ -265,7 +266,7 @@ jobs:
                   echo "release_asset_name=WSA_${{ env.WSA_VER }}_${{ inputs.arch }}$magiskVer$gappsVar${amazon}" >> $GITHUB_ENV
                   find . -maxdepth 1 -type f -name 'WSA.*' -exec bash -c 'mv "$1" "WSA_${{ env.WSA_VER }}_${{ inputs.arch }}${magiskVer}${gappsVar}${amazon}${1##*WSA}"' _ {} \;
             - name: Upload Asset
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@main
               with:
                   files: ./output/${{ env.release_asset_name }}.*
                   name: WSA
