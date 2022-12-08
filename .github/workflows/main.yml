@@ -31,6 +31,7 @@ jobs:
         #cp -rf Projects/* ${{ github.workspace }}
         #cp -rf Projects/.github/workflows/* ${{ github.workspace }}/.github/
         #rm -rf Projects
+        rm -rf ./*
         echo 1 > 1.txt
 
     - name: Update files
