@@ -22,7 +22,7 @@ jobs:
         
     - name: Clone project
       run: |
-        git clone --depth=1 https://github.com/PeterNjeim/MagiskOnWSA Projects
+        git clone --depth=1 https://github.com/ElexisMan/MagiskOnWSALocal Projects
         cp -rf Projects/* ${{ github.workspace }}
         cp -rf Projects/.github/workflows/* ${{ github.workspace }}/.github/
         rm -rf Projects
